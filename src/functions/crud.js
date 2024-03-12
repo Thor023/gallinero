@@ -8,7 +8,7 @@ import {
   setDoc,
   updateDoc,
 } from "firebase/firestore";
-import { db } from "../firebase/fire";
+import { db, auth } from "../firebase/fire";
 
 const generateRandomID = () => {
   const characters =
@@ -67,7 +67,7 @@ export const updateData = async (collection, id, data) => {
 export const deleteData = async (collection, id) => {
   try {
     const docRef = doc(db, collection, id);
-    await deleteDocDoc(docRef);
+    await deleteDoc(docRef);
     console.log("Document Deleted Succesfully!");
   } catch (error) {
     console.error("Error Deleting document: ", error.message);
